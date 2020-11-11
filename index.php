@@ -1,11 +1,7 @@
 <?php
 
-// connect to DB
-$conn = mysqli_connect('localhost', 'jeff', 'test1234', 'jeff_pizza');
-
-if (!$conn) {
-    echo 'Connection error: '.mysqli_connect_error();
-}
+// connect
+include 'config/db_connect.php';
 
 // write query for all pizzas
 $sql = 'SELECT title, ingredients, id FROM pizzas ORDER BY created_at';
@@ -21,6 +17,8 @@ mysqli_free_result($result);
 
 // close connection
 mysqli_close($conn);
+
+explode(',', $pizzas[0]['ingredients']);
 
 // print_r($pizzas);
 
@@ -41,7 +39,13 @@ mysqli_close($conn);
       <div class="card z-depth-0">
         <div class="card-content center">
           <h6><?php echo htmlspecialchars($pizza['title']); ?></h6>
-          <div><?php echo htmlspecialchars($pizza['ingredients']); ?></div>
+          <ul>
+            <?php foreach (explode(',', $pizza['ingredients']) as $ing) { ?>
+
+            <li><?php echo htmlspecialchars($ing); ?></li>
+
+            <?php } ?>
+          </ul>
         </div>
         <div class="card-action right-align">
           <a href="#" class="brand-text">more info</a>
