@@ -25,7 +25,7 @@
     <div class="container">
       <a href="#" class="brand-logo brand-text">Jeff Pizza</a>
       <ul id="nav-mobile" class="right hide-on-small-and-down">
-        <li><a href="/add" class="btn brand z-depth-0">Add a pizza</a></li>
+        <li><a href="/php_tutorial/add.php" class="btn brand z-depth-0">Add a pizza</a></li>
       </ul>
     </div>
   </nav>
